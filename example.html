@@ -18,10 +18,22 @@
                         }
                     };
                 viz = new tableau.Viz(containerDiv, url, options);
+                setTimeout(function(){ getUnderlyingData(); }, 3000);
             }
 
+        
+// <!-- 
+//         window.addEventListener("load", myInit, true); 
+//         function myInit(){
+//             // initViz();
+//               getUnderlyingData(); }; -->
+
+           
+           
             function getUnderlyingData(){
+                //alert('inside');
                 sheet = viz.getWorkbook().getActiveSheet().getWorksheets().get("Storm Map Sheet");
+                //alert(sheet);
 		 // If the active sheet is not a dashboard, then you can just enter:
 		 // viz.getWorkbook().getActiveSheet();
                 options = {
@@ -42,11 +54,11 @@
         </script>
     </head>
 
-    <body onload="initViz();">
+    <body onload="initViz()";>
         <div class="page-header">
             <h1>getData() Basic Example</h1>
             <p>Click the "Get Data" button to get underlying data for the viz.</p>
-            <button id="getData" onclick="getUnderlyingData()" class="btn" disabled>Get Data</button>
+            <button id="getData" onclick="getUnderlyingData()" class="btn">Get Data</button>
         </div>
         <div id="vizContainer" style="width:600px; height:600px;"></div>
         <div id="dataTarget"></div>
